@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:padding="1dp">
+
+    <RelativeLayout
+        android:id="@+id/widget_gate_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_gravity="center"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/widget_gate_icon"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:layout_centerHorizontal="true"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:tint="@color/colorAccent"
+            android:src="@drawable/ic_local_phone_black_24dp" />
+
+        <TextView
+            android:id="@+id/widget_gate_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/widget_gate_icon"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="Gate"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</FrameLayout>

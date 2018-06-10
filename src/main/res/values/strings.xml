@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Gate</string>
+    <string name="title_home">Home</string>
+    <string name="title_settings">Settings</string>
+
+    <string name="gate_phone_hint">Insert gate phone number</string>
+    <string name="open_action_description">Press the phone to open the gate</string>
+    <string name="phone_number_default">( +353 ) 00 000 0000</string>
+    <string name="phone_number_label">Phone number</string>
+    <string name="action_save">Save</string>
+    <string name="nfc_enable_label">Write NFC Tag to launch Gate App</string>
+    <string name="open_action_error">Phone Number is missing. First you should set up the Phone Number on the Setting page.</string>
+    <string name="open_action_error_permission">In order to use this app you should first give the permission to make phone call. Please check this in the main Settings of your device.</string>
+    <string name="message_new_phone_number">New Phone Number saved:</string>
+    <string name="message_nfc_enabled">NFC is now Enabled.</string>
+    <string name="message_nfc_disabled">NFC is now Disabled.</string>
+    <string name="title_activity_dial">DialActivity</string>
+
+    <string name="domain">gate.nicolapaoli.it</string>
+</resources>
