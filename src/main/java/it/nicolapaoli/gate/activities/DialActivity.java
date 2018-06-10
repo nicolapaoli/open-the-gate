@@ -104,4 +104,18 @@ public class DialActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Toast.makeText(this, "nee intent", Toast.LENGTH_SHORT).show();
+        performTagOperations(intent);
+    }
+
+    private void performTagOperations(Intent intent){
+        String action = intent.getAction();
+        if(action.equals(NfcAdapter.ACTION_NDEF_DISCOVERED)){
+            Toast.makeText(this, intent.getData().toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

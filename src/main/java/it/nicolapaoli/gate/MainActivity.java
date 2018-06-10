@@ -2,8 +2,10 @@ package it.nicolapaoli.gate;
 
 import android.Manifest;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.nfc.NdefMessage;
@@ -30,6 +32,7 @@ import java.io.IOException;
 
 import it.nicolapaoli.gate.fragments.HomeFragment;
 import it.nicolapaoli.gate.fragments.SettingsFragment;
+import it.nicolapaoli.gate.utils.Constants;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener{
 
@@ -175,7 +178,13 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         // Tag writing mode
         if (writingMode && NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            NdefMessage message = new NdefMessage(new NdefRecord[] { NdefRecord.createUri("http://" + this.getString(R.string.domain))});
+            SharedPreferences preferences = getSharedPreferences(Constants.PHONE_PREFS, Context.MODE_PRIVATE);
+            final String phoneNumberPref = preferences.getString(Constants.KEY_PHONE_NUMBER, null);
+
+            NdefMessage message = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                message = new NdefMessage(new NdefRecord[] { NdefRecord.createMime(this.getString(R.string.mime), phoneNumberPref.getBytes())});
+            }
             if (writeTag(message, detectedTag)) {
                 Toast.makeText(this, "Success! You can use your new NFC tag to open the gate!", Toast.LENGTH_LONG)
                         .show();
