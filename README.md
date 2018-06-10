@@ -4,6 +4,6 @@ This Android App enable a user to perform a call in a simple way either via Home
 
 ## Usage
 
-Clone the repo in Android Studio and run the App.
+Clone the repo in Android Studio and `run` the App.
 
 > NFC is available only for devices with NFC capabilities
